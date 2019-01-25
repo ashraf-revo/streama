@@ -6,8 +6,9 @@ spring:
       config:
         sources:
         - name: clone
-#          namespace: streama
+          namespace: streama
         namespace: streama
+        name: clone
 management:
   endpoints:
     web:
