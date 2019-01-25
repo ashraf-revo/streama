@@ -13,8 +13,6 @@ spring:
         uri: lb://clone
         predicates:
         - Path=/clone/**
-        filters:
-        - StripPrefix=1
 management:
   endpoints:
     web:
