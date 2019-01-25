@@ -4,8 +4,8 @@ spring:
   cloud:
     kubernetes:
       config:
-        sources:
-        - name: streama
+        name: streama
+        paths:
         - name: ${spring.application.name}
 management:
   endpoints:
