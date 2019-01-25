@@ -7,10 +7,10 @@ metadata:
 rules:
 - apiGroups: [""]
   resources: ["pods","services","configmaps","endpoints","routes","apps","deployments"]
-  verbs: ["get", "watch", "list","patch","create","update","delete"]
+  verbs: ["get", "watch", "list"]
 - apiGroups: ["extensions"]
   resources: ["ingresses"]
-  verbs: ["get", "watch", "list","patch","create","update","delete"]
+  verbs: ["get", "watch", "list"]
 ---
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
