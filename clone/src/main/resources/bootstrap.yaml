@@ -15,3 +15,7 @@ management:
   endpoint:
     health:
       show-details: always
+logging:
+  level:
+    org.springframework: debug
+  file: ${spring.application.name}.log
