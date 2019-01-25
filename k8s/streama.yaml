@@ -6,7 +6,7 @@ metadata:
   namespace: streama
 rules:
 - apiGroups: [""]
-  resources: ["pods","services","configmaps","endpoints"]
+  resources: ["pods","services","configmaps","endpoints","routes","deployments"]
   verbs: ["get", "watch", "list"]
 - apiGroups: ["extensions"]
   resources: ["ingresses"]
@@ -34,7 +34,7 @@ spec:
   selector:
     matchLabels:
       run: clone
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
