@@ -5,7 +5,7 @@ spring:
     kubernetes:
       config:
         sources:
-        - name: ${spring.application.name}
+        - name: ${parent.artifactId}
 management:
   endpoints:
     web:
