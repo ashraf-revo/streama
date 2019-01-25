@@ -6,6 +6,8 @@ spring:
       config:
         name: streama
         namespace: streama
+        paths:
+          - clone
 management:
   endpoints:
     web:
