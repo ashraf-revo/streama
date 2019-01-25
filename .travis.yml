@@ -1,0 +1,9 @@
+language: java
+jdk:
+- oraclejdk8
+before_install:
+- chmod +x mvnw
+install: true
+services:
+- docker
+script: ./mvnw -pl '!.'  clean install -DskipTests=true -Ddocker.username=$docker_username -Ddocker.password=$docker_password

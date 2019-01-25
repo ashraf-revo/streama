@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: clone
+  cloud:
+    kubernetes:
+      config:
+        sources:
+        - name: ${spring.application.name}
