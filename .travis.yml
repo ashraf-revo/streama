@@ -6,4 +6,4 @@ before_install:
 install: true
 services:
 - docker
-script: ./mvnw -pl '!.'  clean install -DskipTests=true -Ddocker.username=$docker_username -Ddocker.password=$docker_password
+script: ./mvnw -pl '!.'  clean install -DskipTests=true
