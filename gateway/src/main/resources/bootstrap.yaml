@@ -7,19 +7,18 @@ spring:
         sources:
         - name: streama
           namespace: streama
-#    gateway:
-#      discovery:
-#        locator:
-#          enabled: true
-#          url-expression: "'lb://'+serviceId+':8080'"
     gateway:
-      routes:
-      - id: clone
-        uri: lb://clone:8080
-        predicates:
-        - Path=/clone/**
-        filters:
-        - StripPrefix=1
+      discovery:
+        locator:
+          enabled: true
+          url-expression: "'http://'+serviceId+':8080'"
+#      routes:
+#      - id: clone
+#        uri: lb://clone:8080
+#        predicates:
+#        - Path=/clone/**
+#        filters:
+#        - StripPrefix=1
 
 management:
   endpoints:
