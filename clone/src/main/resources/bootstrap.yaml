@@ -7,7 +7,7 @@ spring:
         namespace: streama
         sources:
         - namespace: streama
-          name: clone
+          name: streama
         name: streama
 management:
   endpoints:
