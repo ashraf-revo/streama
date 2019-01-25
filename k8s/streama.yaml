@@ -37,7 +37,7 @@ spec:
     spec:
       containers:
       - name: clone
-        image: ashraf1abdelrasool/clone:0.0.2-SNAPSHOT
+        image: ashraf1abdelrasool/clone:0.0.1-SNAPSHOT
         ports:
         - containerPort: 8080
 ---
