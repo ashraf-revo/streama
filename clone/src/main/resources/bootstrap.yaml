@@ -6,6 +6,7 @@ spring:
       config:
         sources:
         - name: streama
+        name: ${spring.application.name}
 management:
   endpoints:
     web:
