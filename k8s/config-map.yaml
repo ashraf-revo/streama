@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: streama
 data:
-  clone.yaml: |-
+  clonemm.yaml: |-
     message: hello world
