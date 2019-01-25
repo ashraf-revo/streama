@@ -5,7 +5,8 @@ spring:
     kubernetes:
       config:
         sources:
-        - name: other
+        - name:
+          namespace: streama.clone
         - name: ${spring.application.name}
 management:
   endpoints:
