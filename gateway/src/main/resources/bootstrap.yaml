@@ -8,9 +8,13 @@ spring:
         - name: streama
           namespace: streama
     gateway:
+      discovery:
+        locator:
+          enabled: true
+          url-expression: "'http://'+serviceId"
       routes:
       - id: clone
-        uri: lb:http://clone
+        uri: lb://clone
         predicates:
         - Path=/clone/**
         filters:
