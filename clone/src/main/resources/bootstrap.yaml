@@ -4,11 +4,9 @@ spring:
   cloud:
     kubernetes:
       config:
-        namespace: streama
         sources:
-        - namespace: streama
+        - namespace: ${spring.application.name}
           name: streama
-        name: streama
 management:
   endpoints:
     web:
