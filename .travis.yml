@@ -7,3 +7,6 @@ install: true
 services:
 - docker
 script: ./mvnw -pl '!.'  clean install -DskipTests=true
+cache:
+  directories:
+  - $HOME/.m2
