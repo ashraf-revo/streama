@@ -11,7 +11,7 @@ spring:
       discovery:
         locator:
           enabled: true
-          url-expression: "'http://'+serviceId+':8080'"
+          url-expression: "'lb://'+serviceId+':8080'"
 management:
   endpoints:
     web:
