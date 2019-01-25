@@ -6,7 +6,7 @@ metadata:
   namespace: streama
 rules:
 - apiGroups: [""]
-  resources: ["pods","services","configmaps","endpoints","deployments"]
+  resources: ["pods","services","configmaps","endpoints"]
   verbs: ["get", "watch", "list"]
 - apiGroups: ["extensions"]
   resources: ["ingresses"]
