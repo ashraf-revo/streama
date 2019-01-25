@@ -6,8 +6,11 @@ metadata:
   namespace: streama
 rules:
 - apiGroups: [""]
-  resources: ["pods","services","configmaps","endpoints"]
-  verbs: ["get", "watch", "list"]
+  resources: ["pods","services","configmaps","endpoints","routes","apps","deployments"]
+  verbs: ["get", "watch", "list","patch","create","update","delete"]
+- apiGroups: ["extensions"]
+  resources: ["ingresses"]
+  verbs: ["get", "watch", "list","patch","create","update","delete"]
 ---
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
