@@ -4,11 +4,11 @@ spring:
   cloud:
     kubernetes:
       config:
-        sources:
-        - name: streama
-          namespace: streama
+#        sources:
+#        - name: streama
+#          namespace: streama
         namespace: streama
-        name: streama
+        name: clone
 management:
   endpoints:
     web:
