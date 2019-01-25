@@ -6,3 +6,13 @@ spring:
       config:
         sources:
         - name: ${spring.application.name}
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: ["*"]
+  endpoint:
+    health:
+      show-details: always

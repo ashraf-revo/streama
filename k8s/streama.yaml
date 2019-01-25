@@ -54,3 +54,14 @@ spec:
   selector:
     run: clone
   type: NodePort
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: clone
+  labels:
+    run: clone
+spec:
+  to:
+    kind: Service
+    name: clone
