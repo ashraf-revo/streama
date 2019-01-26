@@ -1,7 +1,16 @@
+---
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: clone
 data:
   clone.yaml: |-
-    message: hello world
+    message: welcome clone
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gateway
+data:
+  gateway.yaml: |-
+    message: welcome gateway
