@@ -2,11 +2,6 @@ spring:
   application:
     name: gateway
   cloud:
-    kubernetes:
-      config:
-        sources:
-        - name: streama
-          namespace: streama
     gateway:
       discovery:
         locator:
@@ -20,4 +15,3 @@ management:
   endpoint:
     health:
       show-details: always
-#oc delete -f streama.yaml;rm -r -f streama.yaml ;wget https://raw.githubusercontent.com/ashraf-revo/streama/master/k8s/streama.yaml;oc create -f streama.yaml

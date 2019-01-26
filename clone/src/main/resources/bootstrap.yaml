@@ -1,12 +1,6 @@
 spring:
   application:
     name: clone
-  cloud:
-    kubernetes:
-      config:
-        sources:
-        - name: streama
-          namespace: streama
 management:
   endpoints:
     web:

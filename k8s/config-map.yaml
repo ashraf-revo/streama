@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: streama
+  name: clone
 data:
-  clonemm.yaml: |-
+  clone.yaml: |-
     message: hello world
