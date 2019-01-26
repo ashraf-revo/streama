@@ -6,7 +6,7 @@ spring:
       discovery:
         locator:
           enabled: true
-          url-expression: "http://'+${KUBERNETES_SERVICE_HOST}+'/api/v1/namespaces/streama/services/'+serviceId+'/proxy/"
+          url-expression: "http://172.30.0.1/api/v1/namespaces/streama/services/clone/proxy/"
 management:
   endpoints:
     web:
