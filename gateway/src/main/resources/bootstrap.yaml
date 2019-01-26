@@ -7,7 +7,7 @@ spring:
         locator:
           enabled: true
 #          url-expression: "'http://'+serviceId+'streama.svc.cluster.local'"
-          url-expression: "'http://'+${CLONE_SERVICE_HOST}+':'+${CLONE_SERVICE_PORT}"
+          url-expression: "'http://'+'${CLONE_SERVICE_HOST}'+':'+'${CLONE_SERVICE_PORT}'"
 management:
   endpoints:
     web:
