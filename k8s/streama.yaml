@@ -3,7 +3,6 @@ kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: reader
-  namespace: streama
 rules:
 - apiGroups: [""]
   resources: ["pods","services","configmaps","endpoints"]
@@ -23,7 +22,6 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: default
-  namespace: streama
   apiGroup: ""
 ---
 apiVersion: apps/v1
