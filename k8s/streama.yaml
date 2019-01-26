@@ -43,11 +43,6 @@ spec:
         image: ashraf1abdelrasool/clone:0.0.1-SNAPSHOT
         ports:
         - containerPort: 8080
-        livenessProbe:
-          httpGet:
-            port: 8080
-            path: /actuator/health
-          initialDelaySeconds: 90
 ---
 apiVersion: v1
 kind: Service
@@ -60,7 +55,9 @@ spec:
   - protocol: TCP
     port: 8080
     targetPort: 8080
-  type: ClusterIP
+#  type: ClusterIP
+  type: LoadBalancer
+#  type: NodePort
   selector:
     run: clone
 ---
