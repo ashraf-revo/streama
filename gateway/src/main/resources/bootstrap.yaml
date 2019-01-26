@@ -11,8 +11,8 @@ spring:
       discovery:
         locator:
           enabled: true
-          url-expression: "'http://'+serviceId+':8080'"
-#          url-expression: "'http://'+serviceId+'.streama.svc.cluster.local:8080'"
+#          url-expression: "'http://'+serviceId+':8080'"
+          url-expression: "'http://'+serviceId+'.streama.svc.cluster.local:8080'"
 #      routes:
 #      - id: clone
 #        uri: lb://clone:8080
@@ -33,5 +33,4 @@ logging:
   level:
     org.springframework: debug
   file: ${spring.application.name}.log
-#  oc delete -f streama.yaml;rm -r -f streama.yaml ;wget https://raw.githubusercontent.com/ashraf-revo/streama/master/k8s/streama.yaml;oc create -f s
-#  treama.yaml
+#oc delete -f streama.yaml;rm -r -f streama.yaml ;wget https://raw.githubusercontent.com/ashraf-revo/streama/master/k8s/streama.yaml;oc create -f streama.yaml
