@@ -72,10 +72,10 @@ metadata:
 spec:
   ports:
   - protocol: TCP
-    port: 8080
+    port: 80
     targetPort: 8080
 #  type: ClusterIP
-  type: LoadBalancer
+#  type: LoadBalancer
 #  type: NodePort
   selector:
     run: clone
@@ -120,10 +120,11 @@ metadata:
 spec:
   ports:
   - protocol: TCP
-    port: 8080
+    port: 80
+    targetPort: 8080
   selector:
     run: gateway
-  type: NodePort
+#  type: NodePort
 ---
 apiVersion: route.openshift.io/v1
 kind: Route
