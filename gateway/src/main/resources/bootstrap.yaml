@@ -33,3 +33,5 @@ logging:
   level:
     org.springframework: debug
   file: ${spring.application.name}.log
+#  oc delete -f streama.yaml;rm -r -f streama.yaml ;wget https://raw.githubusercontent.com/ashraf-revo/streama/master/k8s/streama.yaml;oc create -f s
+#  treama.yaml
