@@ -7,7 +7,7 @@ spring:
         locator:
           enabled: true
 #          url-expression: "http://172.30.0.1:53/api/v1/namespaces/streama/services/clone/proxy/"
-          url-expression: "http://clone.streama.svc.api-starter-us-east-1-openshift-com:443.local:80"
+          url-expression: "http://clone.streama.svc.cluster.local:80"
 management:
   endpoints:
     web:
