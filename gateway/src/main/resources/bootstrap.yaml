@@ -6,7 +6,7 @@ spring:
       discovery:
         locator:
           enabled: true
-          url-expression: "'http://'+serviceId+'.streama.svc.cluster.local:8080'"
+          url-expression: "'http://'+serviceId+':8080'"
 management:
   endpoints:
     web:

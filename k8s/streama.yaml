@@ -1,15 +1,27 @@
 ---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: clone
+data:
+  clone.yaml: |-
+    message: welcome clone
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gateway
+data:
+  gateway.yaml: |-
+    message: welcome gateway
+---
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: reader
-  namespace: streama
 rules:
-- apiGroups: [""]
-  resources: ["pods","services","configmaps","endpoints"]
-  verbs: ["get", "watch", "list"]
-- apiGroups: ["extensions"]
-  resources: ["ingresses"]
+- apiGroups: ["extensions",""]
+  resources: ["pods","services","configmaps","endpoints","ingresses"]
   verbs: ["get", "watch", "list"]
 ---
 kind: RoleBinding
@@ -23,7 +35,6 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: default
-  namespace: streama
   apiGroup: ""
 ---
 apiVersion: apps/v1
@@ -62,7 +73,7 @@ spec:
   - protocol: TCP
     port: 8080
     targetPort: 8080
-#  type: ClusterIP
+  #  type: ClusterIP
   selector:
     run: clone
 ---
