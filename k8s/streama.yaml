@@ -75,8 +75,8 @@ spec:
     port: 80
     targetPort: 8080
 #  type: ClusterIP
-  type: LoadBalancer
-#  type: NodePort
+#  type: LoadBalancer
+  type: NodePort
   selector:
     run: clone
 ---
