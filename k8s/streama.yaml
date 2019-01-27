@@ -86,6 +86,8 @@ metadata:
   name: clone
   labels:
     run: clone
+  annotations:
+    haproxy.router.openshift.io/balance: roundrobin
 spec:
   to:
     kind: Service
@@ -132,6 +134,8 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: gateway
+  annotations:
+    haproxy.router.openshift.io/balance: roundrobin
   labels:
     run: gateway
 spec:
