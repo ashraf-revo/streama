@@ -6,7 +6,6 @@ spring:
       reload:
         enabled: true
         mode: polling
-        period: 5000
 management:
   endpoints:
     web:
