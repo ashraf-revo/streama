@@ -1,6 +1,12 @@
 spring:
   application:
     name: clone
+  cloud:
+    kubernetes:
+      reload:
+        enabled: true
+        mode: polling
+        period: 5000
 management:
   endpoints:
     web:

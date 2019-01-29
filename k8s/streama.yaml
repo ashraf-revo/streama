@@ -74,7 +74,8 @@ spec:
   - protocol: TCP
     port: 80
     targetPort: 8080
-#  type: ClusterIP
+    name: http
+  #  type: ClusterIP
   type: LoadBalancer
 #  type: NodePort
   selector:
@@ -86,6 +87,8 @@ metadata:
   name: clone
   labels:
     run: clone
+    spring-boot: "true"
+    app: clone
 spec:
   to:
     kind: Service
@@ -117,11 +120,15 @@ metadata:
   name: gateway
   labels:
     run: gateway
+    spring-boot: "true"
+    app: gateway
 spec:
   ports:
   - protocol: TCP
     port: 80
     targetPort: 8080
+    name: http
+
 #  type: ClusterIP
   type: LoadBalancer
 #  type: NodePort
