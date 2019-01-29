@@ -1,7 +1,15 @@
 ---
 apiVersion: v1
+kind: Namespace
+metadata:
+  name: streama
+  labels:
+    name: streama
+---
+apiVersion: v1
 kind: ConfigMap
 metadata:
+  namespace: streama
   name: clone
 data:
   clone.yaml: |-
@@ -10,6 +18,7 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
+  namespace: streama
   name: gateway
 data:
   gateway.yaml: |-
@@ -18,6 +27,7 @@ data:
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
+  namespace: streama
   name: reader
 rules:
 - apiGroups: [""]
@@ -33,6 +43,7 @@ rules:
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
+  namespace: streama
   name: reader
 roleRef:
   kind: Role
@@ -46,6 +57,7 @@ subjects:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: streama
   name: clone
 spec:
   selector:
@@ -66,6 +78,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: streama
   name: clone
   labels:
     run: clone
@@ -75,7 +88,7 @@ spec:
     port: 80
     targetPort: 8080
   #  type: ClusterIP
-  type: LoadBalancer
+#  type: LoadBalancer
   #  type: NodePort
   selector:
     run: clone
@@ -83,6 +96,7 @@ spec:
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
+  namespace: streama
   name: clone
   labels:
     run: clone
@@ -94,6 +108,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: streama
   name: gateway
 spec:
   selector:
@@ -114,6 +129,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: streama
   name: gateway
   labels:
     run: gateway
@@ -123,7 +139,7 @@ spec:
     port: 80
     targetPort: 8080
 #  type: ClusterIP
-  type: LoadBalancer
+#  type: LoadBalancer
 #  type: NodePort
   selector:
     run: gateway
@@ -131,6 +147,7 @@ spec:
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
+  namespace: streama
   name: gateway
   labels:
     run: gateway
