@@ -7,7 +7,7 @@ import org.springframework.cloud.netflix.ribbon.RibbonClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@RibbonClient("gateway")
+@RibbonClient(name = "gateway")
 public class GatewayApplication {
 
     public static void main(String[] args) {

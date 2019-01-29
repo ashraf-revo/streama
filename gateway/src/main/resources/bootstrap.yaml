@@ -6,8 +6,8 @@ spring:
       discovery:
         locator:
           enabled: true
-          url-expression: "'http://'+serviceId"
-#          url-expression: "'http://'+serviceId+'.default.svc.cluster.local'"
+#          url-expression: "'http://'+serviceId"
+          url-expression: "'http://'+serviceId+'.streama.svc.cluster.local'"
 #          url-expression: "'http://'+'${CLONE_SERVICE_HOST}'+':'+'${CLONE_SERVICE_PORT}'"
 #          url-expression: "'http://'+serviceId+'-streama.1d35.starter-us-east-1.openshiftapps.com'"
 management:
@@ -21,7 +21,3 @@ management:
 logging:
   level:
     org.springframework: debug
-ribbon:
-  http:
-    client:
-      enabled: true

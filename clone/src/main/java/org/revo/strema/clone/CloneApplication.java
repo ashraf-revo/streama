@@ -18,7 +18,7 @@ import static reactor.core.publisher.Flux.fromIterable;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@RibbonClient("clone")
+@RibbonClient(name = "clone")
 public class CloneApplication {
     public static void main(String[] args) {
         SpringApplication.run(CloneApplication.class, args);
