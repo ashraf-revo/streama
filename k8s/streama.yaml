@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: cm_clone
+  name: cmclone
 data:
   clone.yaml: |-
     message: welcome clone
@@ -10,7 +10,7 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: cm_gateway
+  name: cmgateway
 data:
   gateway.yaml: |-
     message: welcome gateway
@@ -18,7 +18,7 @@ data:
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: r_reader
+  name: rreader
 rules:
 - apiGroups: [""]
   resources: ["routes","pods","pods/log","pods/status","services","services/proxy","configmaps","endpoints","secrets","serviceaccounts","namespaces","namespaces/status","resourcequotas/status","events","bindings","replicationcontrollers","persistentvolumeclaims"]
@@ -33,10 +33,10 @@ rules:
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: rb_reader
+  name: rbreader
 roleRef:
   kind: Role
-  name: r_reader
+  name: rreader
   apiGroup: rbac.authorization.k8s.io
 subjects:
 - kind: ServiceAccount
@@ -89,9 +89,9 @@ spec:
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: route_clone
+  name: routeclone
   labels:
-    run: route_clone
+    run: routeclone
 spec:
   to:
     kind: Service
@@ -144,9 +144,9 @@ spec:
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: route_gateway
+  name: routegateway
   labels:
-    run: route_gateway
+    run: routegateway
 spec:
   to:
     kind: Service
