@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: clone
+  name: cm_clone
 data:
   clone.yaml: |-
     message: welcome clone
@@ -10,7 +10,7 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: gateway
+  name: cm_gateway
 data:
   gateway.yaml: |-
     message: welcome gateway
@@ -18,7 +18,7 @@ data:
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: reader
+  name: r_reader
 rules:
 - apiGroups: [""]
   resources: ["routes","pods","pods/log","pods/status","services","services/proxy","configmaps","endpoints","secrets","serviceaccounts","namespaces","namespaces/status","resourcequotas/status","events","bindings","replicationcontrollers","persistentvolumeclaims"]
@@ -33,10 +33,10 @@ rules:
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: reader
+  name: rb_reader
 roleRef:
   kind: Role
-  name: reader
+  name: r_reader
   apiGroup: rbac.authorization.k8s.io
 subjects:
 - kind: ServiceAccount
@@ -89,11 +89,9 @@ spec:
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: clone
+  name: route_clone
   labels:
-    run: clone
-    spring-boot: "true"
-    app: clone
+    run: route_clone
 spec:
   to:
     kind: Service
@@ -130,8 +128,6 @@ metadata:
   name: gateway
   labels:
     run: gateway
-    spring-boot: "true"
-    app: gateway
 spec:
   ports:
   - protocol: TCP
@@ -145,27 +141,12 @@ spec:
   selector:
     run: gateway
 ---
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: clone
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-spec:
-  rules:
-  - http:
-      paths:
-      - path: /clone
-        backend:
-          serviceName: clone
-          servicePort: 80
----
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: gateway
+  name: route_gateway
   labels:
-    run: gateway
+    run: route_gateway
 spec:
   to:
     kind: Service
