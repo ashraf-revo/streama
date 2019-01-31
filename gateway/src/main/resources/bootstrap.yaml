@@ -3,10 +3,13 @@ spring:
     name: gateway
   cloud:
     gateway:
-      discovery:
-        locator:
-          enabled: true
-          url-expression: "'http://'+serviceId"
+      routes:
+      - id: clone
+          uri: ${CLONE_SERVICE_HOST}
+          predicates:
+          - Path=/clone/**
+          filters:
+          - StripPrefix=1
 #          url-expression: "'http://'+serviceId+'.streama.svc.cluster.local'"
 #          url-expression: "'http://'+'${CLONE_SERVICE_HOST}'+':'+'${CLONE_SERVICE_PORT}'"
 #          url-expression: "'http://'+serviceId+'-streama.1d35.starter-us-east-1.openshiftapps.com'"
