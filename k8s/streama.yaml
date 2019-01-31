@@ -115,7 +115,7 @@ spec:
     spec:
       containers:
       - name: gateway
-        image: ashraf1abdelrasool/gateway:0.0.4-SNAPSHOT
+        image: ashraf1abdelrasool/gateway:0.0.5-SNAPSHOT
         ports:
         - containerPort: 8080
         livenessProbe:
