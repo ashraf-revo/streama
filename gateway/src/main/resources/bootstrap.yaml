@@ -5,7 +5,7 @@ spring:
     gateway:
       routes:
       - id: clone
-          uri: ${CLONE_SERVICE_HOST}
+          uri: 'http://${CLONE_SERVICE_HOST}'
           predicates:
           - Path=/clone/**
           filters:
