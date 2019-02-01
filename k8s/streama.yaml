@@ -51,7 +51,7 @@ spec:
   selector:
     matchLabels:
       run: clone
-  replicas: 4
+  replicas: 2
   template:
     metadata:
       labels:
@@ -59,14 +59,9 @@ spec:
     spec:
       containers:
       - name: clone
-        image: ashraf1abdelrasool/clone:0.0.4-SNAPSHOT
+        image: ashraf1abdelrasool/clone:0.0.1-SNAPSHOT
         ports:
         - containerPort: 8080
-        livenessProbe:
-          initialDelaySeconds: 120
-          httpGet:
-            port: 8080
-            path: /actuator/health
 ---
 apiVersion: v1
 kind: Service
@@ -92,8 +87,6 @@ metadata:
   name: clone
   labels:
     run: clone
-    spring-boot: "true"
-    app: clone
 spec:
   to:
     kind: Service
@@ -115,14 +108,9 @@ spec:
     spec:
       containers:
       - name: gateway
-        image: ashraf1abdelrasool/gateway:0.0.5-SNAPSHOT
+        image: ashraf1abdelrasool/gateway:0.0.1-SNAPSHOT
         ports:
         - containerPort: 8080
-        livenessProbe:
-          initialDelaySeconds: 120
-          httpGet:
-            port: 8080
-            path: /actuator/health
 ---
 apiVersion: v1
 kind: Service

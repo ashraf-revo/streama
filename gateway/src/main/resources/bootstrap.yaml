@@ -6,9 +6,8 @@ spring:
       discovery:
         locator:
           enabled: true
-          #          url-expression: "'http://'+serviceId"
+          url-expression: "'http://'+serviceId"
           #          url-expression: "'http://'+serviceId+'streama.svc.cluster.local'"
-          url-expression: "'http://'+'${KUBERNETES_SERVICE_HOST}'"
 #          url-expression: "'http://'+'${CLONE_SERVICE_HOST}'+':'+'${CLONE_SERVICE_PORT}'"
 #          url-expression: "'http://'+serviceId+'-streama.1d35.starter-us-east-1.openshiftapps.com'"
 
