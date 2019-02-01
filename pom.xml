@@ -134,13 +134,13 @@
                             <goal>build</goal>
                         </goals>
                     </execution>
-                    <!--<execution>-->
-                    <!--<id>push</id>-->
-                    <!--<phase>install</phase>-->
-                    <!--<goals>-->
-                    <!--<goal>push</goal>-->
-                    <!--</goals>-->
-                    <!--</execution>-->
+                    <execution>
+                        <id>push</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>push</goal>
+                        </goals>
+                    </execution>
                 </executions>
                 <configuration>
                     <verbose>true</verbose>
@@ -165,7 +165,6 @@
                     </images>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
 </project>
