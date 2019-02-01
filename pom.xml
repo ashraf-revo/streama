@@ -163,6 +163,12 @@
                             </build>
                         </image>
                     </images>
+                    <authConfig>
+                        <push>
+                            <username>${docker.username}</username>
+                            <password>${docker.password}</password>
+                        </push>
+                    </authConfig>
                 </configuration>
             </plugin>
         </plugins>
