@@ -1,12 +1,6 @@
 spring:
   application:
     name: clone
-  cloud:
-    discovery:
-      client:
-        simple:
-          local:
-            instance-id: ${kubernetes.podName}
 management:
   endpoints:
     web:
