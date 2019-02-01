@@ -7,7 +7,7 @@
         <artifactId>streama</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <groupId>org.revo.strema</groupId>
+    <groupId>org.revo.streama</groupId>
     <artifactId>clone</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>clone</name>
