@@ -58,17 +58,24 @@ spec:
         run: clone
     spec:
       containers:
-      - env:
-        - name: "KUBERNETES_NAMESPACE"
-          valueFrom:
-            fieldRef:
-              fieldPath: "metadata.namespace"
-        name: "clone"
+      - name: "clone"
         image: "ashraf1abdelrasool/clone:0.0.1-SNAPSHOT"
+        livenessProbe:
+          httpGet:
+            path: "/actuator/health"
+            port: 80
+          initialDelaySeconds: 180
         ports:
         - containerPort: 80
           name: "http"
           protocol: "TCP"
+        readinessProbe:
+          httpGet:
+            path: "/actuator/health"
+            port: 80
+          initialDelaySeconds: 10
+        securityContext:
+          privileged: false
 ---
 apiVersion: v1
 kind: Service
@@ -82,8 +89,8 @@ spec:
     port: 80
     targetPort: 80
     name: http
-#  type: ClusterIP
-#  type: NodePort
+  #  type: ClusterIP
+  #  type: NodePort
   type: LoadBalancer
   selector:
     run: clone
@@ -114,17 +121,24 @@ spec:
         run: gateway
     spec:
       containers:
-      - env:
-        - name: "KUBERNETES_NAMESPACE"
-          valueFrom:
-            fieldRef:
-              fieldPath: "metadata.namespace"
-        name: "gateway"
+      - name: "gateway"
         image: "ashraf1abdelrasool/gateway:0.0.1-SNAPSHOT"
+        livenessProbe:
+          httpGet:
+            path: "/actuator/health"
+            port: 80
+          initialDelaySeconds: 180
         ports:
         - containerPort: 80
           name: "http"
           protocol: "TCP"
+        readinessProbe:
+          httpGet:
+            path: "/actuator/health"
+            port: 80
+          initialDelaySeconds: 10
+        securityContext:
+          privileged: false
 ---
 apiVersion: v1
 kind: Service
@@ -138,8 +152,8 @@ spec:
     port: 80
     targetPort: 80
     name: http
-#  type: ClusterIP
-#  type: NodePort
+  #  type: ClusterIP
+  #  type: NodePort
   type: LoadBalancer
   selector:
     run: gateway
