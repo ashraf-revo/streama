@@ -4,10 +4,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
 import org.springframework.web.reactive.function.server.RouterFunction;
@@ -23,8 +21,6 @@ import static reactor.core.publisher.Flux.fromIterable;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@RibbonClient(name = "clone")
-@EnableCircuitBreaker
 public class CloneApplication {
     public static void main(String[] args) {
         SpringApplication.run(CloneApplication.class, args);
