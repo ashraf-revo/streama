@@ -114,7 +114,6 @@
                     </generateGitPropertiesFilename>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
@@ -134,7 +133,6 @@
                             <goal>build</goal>
                         </goals>
                     </execution>
-<!--
                     <execution>
                         <id>push</id>
                         <phase>install</phase>
@@ -142,7 +140,6 @@
                             <goal>push</goal>
                         </goals>
                     </execution>
--->
                 </executions>
                 <configuration>
                     <verbose>true</verbose>
@@ -166,12 +163,6 @@
                             </build>
                         </image>
                     </images>
-                    <authConfig>
-                        <push>
-                            <username>${docker.username}</username>
-                            <password>${docker.password}</password>
-                        </push>
-                    </authConfig>
                 </configuration>
             </plugin>
         </plugins>
