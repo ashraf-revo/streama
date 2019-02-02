@@ -64,9 +64,7 @@ spec:
         - containerPort: 8080
         env:
         - name: "KUBERNETES_NAMESPACE"
-          valueFrom:
-            fieldRef:
-              fieldPath: "metadata.namespace"
+          value: streama
 ---
 apiVersion: v1
 kind: Service
@@ -80,8 +78,8 @@ spec:
     port: 80
     targetPort: 8080
     name: http
-  #  type: NodePort
   #  type: ClusterIP
+  #  type: NodePort
   type: LoadBalancer
   selector:
     run: clone
@@ -118,9 +116,7 @@ spec:
         - containerPort: 8080
         env:
         - name: "KUBERNETES_NAMESPACE"
-          valueFrom:
-            fieldRef:
-              fieldPath: "metadata.namespace"
+          value: streama
 ---
 apiVersion: v1
 kind: Service
