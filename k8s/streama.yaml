@@ -62,9 +62,6 @@ spec:
         image: ashraf1abdelrasool/clone:0.0.1-SNAPSHOT
         ports:
         - containerPort: 8080
-        env:
-        - name: "KUBERNETES_NAMESPACE"
-          value: streama
 ---
 apiVersion: v1
 kind: Service
@@ -114,9 +111,6 @@ spec:
         image: ashraf1abdelrasool/gateway:0.0.1-SNAPSHOT
         ports:
         - containerPort: 8080
-        env:
-        - name: "KUBERNETES_NAMESPACE"
-          value: streama
 ---
 apiVersion: v1
 kind: Service
