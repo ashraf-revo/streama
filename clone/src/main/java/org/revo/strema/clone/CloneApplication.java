@@ -33,9 +33,7 @@ public class CloneApplication {
     @Bean
     public RouterFunction<ServerResponse> function(@Value("${message:default}") String message, DiscoveryClient discoveryClient, Environment environment) {
         return route(GET("/message"), serverRequest -> ok().body(Mono.just(message + " from " + environment.getProperty("HOSTNAME")), String.class))
-                .andRoute(GET("/services"), serverRequest -> {
-                    return ok().body(fromIterable(discoveryClient.getServices().stream().flatMap(it -> discoveryClient.getInstances(it).stream()).collect(Collectors.toList())), ServiceInstance.class);
-                });
+                .andRoute(GET("/services"), serverRequest -> ok().body(fromIterable(discoveryClient.getServices().stream().flatMap(it -> discoveryClient.getInstances(it).stream()).collect(Collectors.toList())), ServiceInstance.class));
     }
 }
 
