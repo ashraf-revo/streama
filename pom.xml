@@ -154,7 +154,6 @@
                                     <exec>
                                         <arg>java</arg>
                                         <arg>-Djava.security.egd=file:/dev/./urandom</arg>
-                                        <arg>-Dserver.port=80</arg>
                                         <arg>-jar</arg>
                                         <arg>/maven/${project.build.finalName}.${project.packaging}</arg>
                                     </exec>
