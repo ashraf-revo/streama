@@ -75,9 +75,9 @@ spec:
     port: 80
     targetPort: 8080
     name: http
-  #  type: ClusterIP
-  #  type: NodePort
-  type: LoadBalancer
+  type: ClusterIP
+#  type: NodePort
+#  type: LoadBalancer
   selector:
     run: clone
 ---
@@ -124,8 +124,8 @@ spec:
     port: 80
     targetPort: 8080
     name: http
-  #  type: ClusterIP
-  #  type: NodePort
+#  type: ClusterIP
+#  type: NodePort
   type: LoadBalancer
   selector:
     run: gateway
