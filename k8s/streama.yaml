@@ -65,22 +65,10 @@ spec:
               fieldPath: "metadata.namespace"
         name: "clone"
         image: "ashraf1abdelrasool/clone:0.0.1-SNAPSHOT"
-        livenessProbe:
-          httpGet:
-            path: "/actuator/health"
-            port: 80
-          initialDelaySeconds: 180
         ports:
         - containerPort: 80
           name: "http"
           protocol: "TCP"
-        readinessProbe:
-          httpGet:
-            path: "/actuator/health"
-            port: 80
-          initialDelaySeconds: 10
-        securityContext:
-          privileged: false
 ---
 apiVersion: v1
 kind: Service
@@ -133,22 +121,10 @@ spec:
               fieldPath: "metadata.namespace"
         name: "gateway"
         image: "ashraf1abdelrasool/gateway:0.0.1-SNAPSHOT"
-        livenessProbe:
-          httpGet:
-            path: "/actuator/health"
-            port: 80
-          initialDelaySeconds: 180
         ports:
         - containerPort: 80
           name: "http"
           protocol: "TCP"
-        readinessProbe:
-          httpGet:
-            path: "/actuator/health"
-            port: 80
-          initialDelaySeconds: 10
-        securityContext:
-          privileged: false
 ---
 apiVersion: v1
 kind: Service
