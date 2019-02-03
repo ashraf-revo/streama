@@ -39,6 +39,8 @@ data:
             locator:
               enabled: true
               url-expression: "'lb:http://'+serviceId"
+    logging:
+      file: /tmp/${spring.application.name}.log
 
 ---
 kind: Role
@@ -101,8 +103,8 @@ spec:
     port: 80
     targetPort: 8080
     name: http
-  # type: ClusterIP
-  #  type: NodePort
+#  type: ClusterIP
+#  type: NodePort
   type: LoadBalancer
   selector:
     run: clone
@@ -150,8 +152,8 @@ spec:
     port: 80
     targetPort: 8080
     name: http
-  #  type: ClusterIP
-  #  type: NodePort
+#  type: ClusterIP
+#  type: NodePort
   type: LoadBalancer
   selector:
     run: gateway
