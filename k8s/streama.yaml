@@ -31,7 +31,6 @@ metadata:
   name: gateway
 data:
   gateway.yaml: |-
-    message: welcome gateway
     spring:
       cloud:
         gateway:
@@ -39,9 +38,6 @@ data:
             locator:
               enabled: true
               url-expression: "'lb:http://'+serviceId"
-    logging:
-      file: /tmp/${spring.application.name}.log
-
 ---
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
