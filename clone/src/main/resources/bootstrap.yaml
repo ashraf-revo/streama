@@ -1,6 +1,11 @@
 spring:
   application:
     name: clone
+  cloud:
+    kubernetes:
+      config:
+        sources:
+        - name: default
 management:
   endpoints:
     web:

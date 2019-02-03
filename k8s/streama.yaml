@@ -2,6 +2,14 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
+  name: default
+data:
+  clone.yaml: |-
+    defaultmessage: welcome from default
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
   name: clone
 data:
   clone.yaml: |-
@@ -75,8 +83,8 @@ spec:
     port: 80
     targetPort: 8080
     name: http
-# type: ClusterIP
-#  type: NodePort
+  # type: ClusterIP
+  #  type: NodePort
   type: LoadBalancer
   selector:
     run: clone
@@ -124,8 +132,8 @@ spec:
     port: 80
     targetPort: 8080
     name: http
-#  type: ClusterIP
-#  type: NodePort
+  #  type: ClusterIP
+  #  type: NodePort
   type: LoadBalancer
   selector:
     run: gateway
