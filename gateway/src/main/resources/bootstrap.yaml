@@ -7,16 +7,3 @@ spring:
         sources:
         - name: ${spring.application.name}
         - name: default
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-          url-expression: "'lb:http://'+serviceId"
-management:
-  endpoints:
-    web:
-      exposure:
-        include: ["*"]
-  endpoint:
-    health:
-      show-details: always

@@ -7,11 +7,3 @@ spring:
         sources:
         - name: ${spring.application.name}
         - name: default
-management:
-  endpoints:
-    web:
-      exposure:
-        include: ["*"]
-  endpoint:
-    health:
-      show-details: always

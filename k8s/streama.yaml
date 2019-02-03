@@ -5,7 +5,17 @@ metadata:
   name: default
 data:
   default.yaml: |-
-    defaultmessage: welcome from default
+    management:
+      endpoints:
+        web:
+          exposure:
+            include: ["*"]
+      endpoint:
+        health:
+          show-details: always
+    logging:
+      file: /tmp/${spring.application.name}.log
+
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -22,6 +32,14 @@ metadata:
 data:
   gateway.yaml: |-
     message: welcome gateway
+    spring:
+      cloud:
+        gateway:
+          discovery:
+            locator:
+              enabled: true
+              url-expression: "'lb:http://'+serviceId"
+
 ---
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
@@ -59,7 +77,7 @@ spec:
   selector:
     matchLabels:
       run: clone
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:

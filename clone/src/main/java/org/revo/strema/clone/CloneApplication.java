@@ -27,8 +27,8 @@ public class CloneApplication {
     }
 
     @Bean
-    public RouterFunction<ServerResponse> function(@Value("${message:default}") String message, @Value("${defaultmessage:default}") String defaultmessage, DiscoveryClient discoveryClient, Environment environment) {
-        return route(GET("/message"), serverRequest -> ok().body(Mono.just(message + " from " + environment.getProperty("HOSTNAME") + " with default " + defaultmessage), String.class))
+    public RouterFunction<ServerResponse> function(@Value("${message:default}") String message, DiscoveryClient discoveryClient, Environment environment) {
+        return route(GET("/message"), serverRequest -> ok().body(Mono.just(message + " from " + environment.getProperty("HOSTNAME")), String.class))
                 .andRoute(GET("/services"), serverRequest -> ok().body(fromIterable(discoveryClient.getServices().stream().flatMap(it -> discoveryClient.getInstances(it).stream()).collect(Collectors.toList())), ServiceInstance.class));
     }
 }
