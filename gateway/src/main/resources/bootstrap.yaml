@@ -5,6 +5,7 @@ spring:
     kubernetes:
       config:
         sources:
+        - name: ${spring.application.name}
         - name: default
     gateway:
       discovery:
