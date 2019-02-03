@@ -4,7 +4,7 @@ kind: ConfigMap
 metadata:
   name: default
 data:
-  clone.yaml: |-
+  default.yaml: |-
     defaultmessage: welcome from default
 ---
 apiVersion: v1
