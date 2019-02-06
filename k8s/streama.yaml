@@ -37,7 +37,7 @@ data:
           discovery:
             locator:
               enabled: true
-              url-expression: "'http://'+serviceId+'.router.default.svc.cluster.local'"
+              url-expression: "'http://'+serviceId+'.router.streama.svc.cluster.local'"
 ---
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
